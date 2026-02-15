@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block head %} {% endblock %}
+
+{% block body %} 
+<div class ="main-para">
+
+</div>
+
+<div class = "contact-section1">
+   {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="contactmsg">
+            <h1>{{ messages [-1] }}</h1>
+        </div>
+        {% endif %}
+    {% endwith %}
+    <h1>Contact Me</h1>
+ 
+</div>
+<div class = "contact-section2">
+
+    <form method = "POST" class = "contact-form">
+        {{form.hidden_tag()}}
+        <br>{{form.recaptcha}}<br>
+        <label for = "name">Name:</label>
+        {{ form.name(id="name") }}<br>
+        <label for = "email">Email:</label>
+        {{ form.email(id="email") }}<br>
+        <label for = "message">Message:</label>
+          {{ form.message(id="message") }}<br>
+        <input type = "submit" value = "Submit" class="submitbtn">
+        
+
+    </form>
+
+</div>
+
+
+{% endblock %}
+

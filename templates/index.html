@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1"/>
+
+    <title>{% block title %}Saad Shahid's Website{% endblock %}</title>
+
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    <script defer src="{{url_for('static',filename='js/main.js')}}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap" rel="stylesheet">
+
+
+{% block head %}
+{% endblock %}
+
+</head>
+
+<body>
+
+<div class = "sidebar" id = "sidebar">
+
+    <button type= "button" id = "sidebar-btn" class = "sidebar-btn">
+        <img src = "{{url_for('static',filename='images/sidebar.png')}}" alt = "sidebar">
+    </button>
+    <div class ="sidebar-panel" id = "sidebar-panel">
+        <a class = "sidebar-link" href = "darjahai.saadshahid.net" onclick="alert('Coming Soon.'); return false;">DarjahAI</a>
+        <a class = "sidebar-link" href = "webdev.saadshahid.net" onclick="alert('Coming Soon.'); return false;">WebDev</a>
+        <a class = "sidebar-link" href = "gamedev.saadshahid.net" onclick="alert('Coming Soon.'); return false;">GameDev</a>
+    </div>   
+</div>
+    
+<div class = "gradient-bg">
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="goo">
+<feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blur" />
+<feColorMatrix in="blur" mode="matrix" 
+values=
+"1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 30 -10"
+result="goo" />
+<feMorphology in="goo" operator = "dilate" radius = "3" result="thick"/>
+<feBlend in="SourceGraphic" in2="thick" mode = "normal" />
+</filter>
+</defs>
+</svg>
+    <div class = "gradient-container">
+        <div class ="g1"></div>
+        <div class="interactive"></div>
+    </div>
+</div>
+
+
+
+    <nav class = "navbar">
+        <ul>
+            <li><a href = "{{url_for('index')}}">Home</a></li>
+            <li><a href = "{{ url_for('projects') }}">Projects</a></li>
+            <li><a href = "{{ url_for('certifications') }}">Certifications</a></li>
+            <li><a href = "{{ url_for('courses') }}">Courses</a></li>
+            <li><a href = "{{ url_for('about') }}">About Me</a></li>
+            <li><a href = "{{ url_for('contact') }}">Contact Me</a></li>
+        </ul>
+    </nav>
+                <p class= "main-subtext">Saad Shahid</p>
+
+                    {% block body %}      
+
+    <header class = "start-header">
+        
+        <div class ="main-title">
+        <h1>Full-Stack Developer</h1>
+        </div>
+        <div class ="main-image-content1">
+            <img src = "{{url_for('static',filename='images/firstphotofme.jpg')}}" width="100" height="100" alt="This is a photo of me">
+        </div>
+    </header>
+    
+
+<div class="my-photo-container">
+
+    <div class="photo1">
+        <a href="mailto:0.saad.shahid@gmail.com" target="_blank">
+<img src="{{url_for('static',filename='images/emailicon.png')}}"width="50" height="50" alt = "My photo">
+        </a>
+</div>
+
+<div class="photo2">
+    <a href="https://github.com/xxaad0" target="_blank">
+<img src="{{url_for('static',filename='images/githubicon.png')}}"width="50" height="50" alt = "My photo">
+</a>
+</div>
+
+<div class="photo3">
+    <a href="https://www.linkedin.com/in/saad-shahid-560622217/" target="_blank">
+<img src="{{url_for('static',filename='images/linkedinicon.png')}}"width="50" height="50" alt = "My photo">
+</a>
+</div>
+
+</div>
+
+<div class = "skills">
+    <ul>
+        <li>React</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>SQL</li>
+    </ul>
+</div>
+
+
+
+
+<div class="my-resume-container">
+
+    <div class="resume1">
+        <a href="{{url_for('static',filename='files/Saad.Shahid.2026.Resume.pdf')}}" target="_blank">
+<img src="{{url_for('static',filename='images/resumeicon.png')}}"width="100" height="100" alt = "My photo">
+        </a>
+</div>
+
+</div>
+
+    
+    {% endblock %}
+
+</body>
+
+<footer>
+    <p>&copy; 2026 Saad Shahid. All rights reserved.</p>
+</footer>
+
+</html>
+
