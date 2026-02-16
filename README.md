@@ -34,7 +34,7 @@ This repository contains the source code for my personal portfolio website. It�
 
 ## Repository structure
 
-```text
+```
 SAADSHAHID.NET-V2/
 ├─ app.py
 ├─ formforcontact.py
@@ -54,7 +54,7 @@ SAADSHAHID.NET-V2/
    │  └─ main.js
    └─ images/
       └─ (icons, photos, UI assets)
-````
+```
 
 ## Site navigation
 
