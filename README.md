@@ -1,4 +1,4 @@
-```md
+````md
 # SaadShahid.net v2 — Personal Portfolio Website
 
 This repository contains the source code for my personal portfolio website. It’s built with **Flask + Jinja2** and showcases my projects, certifications, courses, and background, with a functional contact form.
@@ -34,8 +34,7 @@ This repository contains the source code for my personal portfolio website. It�
 
 ## Repository structure
 
-```
-
+```text
 SAADSHAHID.NET-V2/
 ├─ app.py
 ├─ formforcontact.py
@@ -49,31 +48,29 @@ SAADSHAHID.NET-V2/
 │  ├─ about.html
 │  └─ contact.html
 └─ static/
-├─ css/
-│  └─ styles.css
-├─ js/
-│  └─ main.js
-└─ images/
-└─ (icons, photos, UI assets)
-
-```
+   ├─ css/
+   │  └─ styles.css
+   ├─ js/
+   │  └─ main.js
+   └─ images/
+      └─ (icons, photos, UI assets)
+````
 
 ## Site navigation
 
 The main navbar routes to:
 
-- `/` Home
-- `/projects` Projects
-- `/certifications` Certifications
-- `/courses` Courses
-- `/about` About Me
-- `/contact` Contact
+* `/` Home
+* `/projects` Projects
+* `/certifications` Certifications
+* `/courses` Courses
+* `/about` About Me
+* `/contact` Contact
 
 The sidebar includes links to related/adjacent work (e.g., DarjahAI) and placeholders for upcoming subdomains.
 
 ## Contact
 
-- Email: `dev@saadshahid.net`
-- GitHub: `xxaad0`
-- LinkedIn: `saad-shahid-560622217`
-```
+* Email: `dev@saadshahid.net`
+* GitHub: `xxaad0`
+* LinkedIn: `saad-shahid-560622217`
