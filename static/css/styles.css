@@ -1094,3 +1094,322 @@ p {
         height: 210px;
     }
 }
+
+
+/* =========================================================
+   CYBERSECURITY MOTION LAYER
+   Subtle SOC / terminal effects — no blobs or mouse-follow.
+   ========================================================= */
+
+/* Slowly moving technical grid */
+body {
+    background:
+        linear-gradient(rgba(92, 255, 170, 0.020) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 255, 170, 0.020) 1px, transparent 1px),
+        radial-gradient(circle at top right, rgba(21, 106, 71, 0.12), transparent 28%),
+        var(--bg);
+    background-size:
+        36px 36px,
+        36px 36px,
+        auto,
+        auto;
+    animation: cyber-grid-drift 18s linear infinite;
+}
+
+/* Very faint scanline sweep over the page */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -120% 0 0 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.16;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 48%,
+            rgba(92, 255, 170, 0.055) 49%,
+            rgba(92, 255, 170, 0.018) 50%,
+            transparent 52%,
+            transparent 100%
+        );
+    background-size: 100% 240px;
+    animation: cyber-scan 9s linear infinite;
+}
+
+/* Fine CRT-style lines, intentionally very subtle */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0.10;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.012) 0,
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+/* Pulsing live/online dots */
+.status-dot,
+.security-indicator {
+    animation: cyber-pulse 1.9s ease-in-out infinite;
+}
+
+/* Terminal gets a restrained scanning highlight */
+.terminal-card {
+    position: relative;
+    isolation: isolate;
+}
+
+.terminal-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    background:
+        linear-gradient(
+            100deg,
+            transparent 0%,
+            rgba(92, 255, 170, 0.025) 43%,
+            rgba(92, 255, 170, 0.10) 50%,
+            rgba(92, 255, 170, 0.025) 57%,
+            transparent 100%
+        );
+    transform: translateX(-115%);
+    animation: terminal-sweep 7s ease-in-out infinite;
+}
+
+.terminal-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Blinking terminal cursor appended by JS */
+.cyber-cursor {
+    display: inline-block;
+    width: 0.62em;
+    height: 1em;
+    margin-left: 0.25em;
+    vertical-align: -0.12em;
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(92, 255, 170, 0.55);
+    animation: cyber-cursor-blink 0.85s steps(1, end) infinite;
+}
+
+/* Small live-state flicker */
+.terminal-state,
+.form-status {
+    animation: terminal-status-flicker 4.8s linear infinite;
+}
+
+/* Cards get a faint "active system" border glow on hover */
+.info-card,
+.skill-card,
+.project-card,
+.experience-card,
+.contact-copy,
+.contact-form-card,
+.terminal-card,
+.profile-photo-link {
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.info-card:hover,
+.skill-card:hover,
+.project-card:hover,
+.experience-card:hover,
+.contact-copy:hover,
+.contact-form-card:hover {
+    border-color: rgba(92, 255, 170, 0.28);
+    box-shadow:
+        0 0 0 1px rgba(92, 255, 170, 0.02),
+        0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+/* Section codes feel like active system markers */
+.section-code {
+    position: relative;
+}
+
+.section-code::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 1px;
+    margin-top: 8px;
+    background: var(--green);
+    transform-origin: left;
+    animation: section-line-pulse 2.4s ease-in-out infinite;
+}
+
+/* One restrained accent sweep across the primary buttons */
+.cyber-btn.primary,
+.contact-submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-btn.primary::after,
+.contact-submit::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    bottom: -50%;
+    width: 32px;
+    left: -60px;
+    pointer-events: none;
+    opacity: 0.26;
+    background: rgba(255, 255, 255, 0.7);
+    transform: rotate(18deg);
+    animation: button-signal 5.5s ease-in-out infinite;
+}
+
+@keyframes cyber-grid-drift {
+    from {
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0;
+    }
+    to {
+        background-position:
+            36px 36px,
+            36px 36px,
+            0 0,
+            0 0;
+    }
+}
+
+@keyframes cyber-scan {
+    from {
+        transform: translateY(-35%);
+    }
+    to {
+        transform: translateY(35%);
+    }
+}
+
+@keyframes cyber-pulse {
+    0%,
+    100% {
+        opacity: 0.65;
+        box-shadow: 0 0 5px rgba(92, 255, 170, 0.35);
+    }
+    50% {
+        opacity: 1;
+        box-shadow:
+            0 0 10px rgba(92, 255, 170, 0.65),
+            0 0 22px rgba(92, 255, 170, 0.20);
+    }
+}
+
+@keyframes terminal-sweep {
+    0%,
+    70% {
+        opacity: 0;
+        transform: translateX(-115%);
+    }
+    75% {
+        opacity: 1;
+    }
+    92% {
+        opacity: 1;
+        transform: translateX(115%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(115%);
+    }
+}
+
+@keyframes cyber-cursor-blink {
+    0%,
+    48% {
+        opacity: 1;
+    }
+    49%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes terminal-status-flicker {
+    0%,
+    93%,
+    100% {
+        opacity: 1;
+    }
+    94% {
+        opacity: 0.45;
+    }
+    95% {
+        opacity: 1;
+    }
+    96% {
+        opacity: 0.68;
+    }
+    97% {
+        opacity: 1;
+    }
+}
+
+@keyframes section-line-pulse {
+    0%,
+    100% {
+        transform: scaleX(0.45);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@keyframes button-signal {
+    0%,
+    72% {
+        left: -60px;
+        opacity: 0;
+    }
+    76% {
+        opacity: 0.26;
+    }
+    92% {
+        left: calc(100% + 50px);
+        opacity: 0.26;
+    }
+    100% {
+        left: calc(100% + 50px);
+        opacity: 0;
+    }
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+    body,
+    body::before,
+    .status-dot,
+    .security-indicator,
+    .terminal-card::before,
+    .terminal-state,
+    .form-status,
+    .section-code::after,
+    .cyber-btn.primary::after,
+    .contact-submit::after,
+    .cyber-cursor {
+        animation: none !important;
+    }
+}
