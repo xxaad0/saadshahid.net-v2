@@ -1,146 +1,576 @@
 <!DOCTYPE html>
-
-<html lang = "en">
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Saad Shahid's Website{% endblock %}</title>
+    <title>{% block title %}Saad Shahid | Cybersecurity{% endblock %}</title>
 
-    
-    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
-    <script defer src="{{url_for('static',filename='js/main.js')}}"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap" rel="stylesheet">
+    <meta
+        name="description"
+        content="Saad Shahid — CompTIA Security+ certified Master of Cybersecurity student focused on security operations, vulnerability management, network security, incident response, IAM, and risk."
+    >
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-{% block head %}
-{% endblock %}
-
+    {% block head %}{% endblock %}
 </head>
 
 <body>
+    {% block body %}
 
-<div class = "sidebar" id = "sidebar">
+    <main class="site-shell">
 
-    <button type= "button" id = "sidebar-btn" class = "sidebar-btn">
-        <img src = "{{url_for('static',filename='images/sidebar.png')}}" alt = "sidebar">
-    </button>
-    <div class ="sidebar-panel" id = "sidebar-panel">
-        <a class = "sidebar-link" href = "https://darjahai.saadshahid.net">DarjahAI</a>
-        <a class = "sidebar-link" href = "webdev.saadshahid.net" onclick="alert('Coming Soon.'); return false;">WebDev</a>
-        <a class = "sidebar-link" href = "gamedev.saadshahid.net" onclick="alert('Coming Soon.'); return false;">GameDev</a>
-    </div>   
-</div>
-    
-<div class = "gradient-bg">
-<svg xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="goo">
-<feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blur" />
-<feColorMatrix in="blur" mode="matrix" 
-values=
-"1 0 0 0 0
-0 1 0 0 0
-0 0 1 0 0
-0 0 0 30 -10"
-result="goo" />
-<feMorphology in="goo" operator = "dilate" radius = "3" result="thick"/>
-<feBlend in="SourceGraphic" in2="thick" mode = "normal" />
-</filter>
-</defs>
-</svg>
-    <div class = "gradient-container">
-        <div class ="g1"></div>
-        <div class="interactive"></div>
-    </div>
-</div>
+        <section class="hero cyber-panel">
+            <div class="hero-copy">
+                <div class="status-line">
+                    <span class="status-dot"></span>
+                    SEEKING WINTER 2027 CYBERSECURITY INTERNSHIPS
+                </div>
 
+                <p class="eyebrow">SECURITY OPERATIONS / NETWORK DEFENSE / RISK</p>
 
+                <h1>
+                    Saad Shahid
+                    <span>Cybersecurity Analyst</span>
+                </h1>
 
-    <nav class = "navbar">
-        <ul>
-            <li><a href = "{{url_for('index')}}">Home</a></li>
-            <li><a href = "{{ url_for('projects') }}">Projects</a></li>
-            <li><a href = "{{ url_for('certifications') }}">Certifications</a></li>
-            <li><a href = "{{ url_for('courses') }}">Courses</a></li>
-            <li><a href = "{{ url_for('about') }}">About Me</a></li>
-            <li><a href = "{{ url_for('contact') }}">Contact Me</a></li>
-        </ul>
-    </nav>
-                <p class= "main-subtext">Saad Shahid</p>
+                <p class="hero-summary">
+                    CompTIA Security+ certified Master of Cybersecurity student with an
+                    Honours Bachelor of Information Technology and hands-on security training.
+                    Building toward a career in security operations, vulnerability management,
+                    network security, incident response, identity and access management, and risk.
+                </p>
 
-                    {% block body %}      
+                <div class="hero-actions">
+                    <a class="cyber-btn primary" href="mailto:dev@saadshahid.net">
+                        EMAIL ME
+                    </a>
 
-    <header class = "start-header">
-        
-        <div class ="main-title">
-        <h1>Full-Stack Developer</h1>
+                    <a
+                        class="cyber-btn"
+                        href="https://www.linkedin.com/in/saad-shahid-560622217"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LINKEDIN ↗
+                    </a>
+
+                    <a
+                        class="cyber-btn"
+                        href="https://github.com/xxaad0"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GITHUB ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-side">
+                <a
+                    class="profile-photo-link"
+                    href="{{ url_for('static', filename='images/firstphotofme.jpg') }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open full photo of Saad Shahid"
+                >
+                    <img
+                        class="profile-photo"
+                        src="{{ url_for('static', filename='images/firstphotofme.jpg') }}"
+                        alt="Saad Shahid"
+                    >
+                    <span>VIEW PHOTO ↗</span>
+                </a>
+
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                    <span class="terminal-title">security_profile.exe</span>
+                    <span class="terminal-state">ONLINE</span>
+                </div>
+
+                <div class="terminal-body">
+                    <p><span class="prompt">&gt;</span> user</p>
+                    <p class="output">saad_shahid</p>
+
+                    <p><span class="prompt">&gt;</span> certifications</p>
+                    <p class="output">
+                        [OK] CompTIA Security+<br>
+                        [OK] Google Cybersecurity<br>
+                        [OK] Google Cloud Modern Security Operations
+                    </p>
+
+                    <p><span class="prompt">&gt;</span> focus_areas</p>
+                    <p class="output">
+                        security_operations<br>
+                        vulnerability_management<br>
+                        incident_response<br>
+                        network_security<br>
+                        iam_and_access_control<br>
+                        risk_and_compliance
+                    </p>
+
+                    <p><span class="prompt">&gt;</span> status</p>
+                    <p class="output accent">READY_TO_LEARN_AND_CONTRIBUTE</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-stats">
+            <div class="stat-card">
+                <span class="stat-label">CERTIFICATION</span>
+                <strong>Security+</strong>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">CURRENT PROGRAM</span>
+                <strong>Master of Cybersecurity</strong>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">BACKGROUND</span>
+                <strong>B.IT Honours</strong>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">TRAINING</span>
+                <strong>TryHackMe SEC0</strong>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <span class="section-code">01</span>
+                <div>
+                    <p class="eyebrow">ABOUT</p>
+                    <h2>Security-focused with a technical foundation.</h2>
+                </div>
+            </div>
+
+            <div class="about-layout">
+                <div class="body-copy">
+                    <p>
+                        I’m a cybersecurity graduate student based in Mississauga, Ontario.
+                        My background combines security fundamentals with software development,
+                        networking, systems troubleshooting, and technical documentation.
+                    </p>
+
+                    <p>
+                        I’m especially interested in defensive security work involving monitoring,
+                        vulnerability management, access control, incident response, network security,
+                        and risk assessment across enterprise and OT environments.
+                    </p>
+                </div>
+
+                <div class="mini-grid">
+                    <article class="info-card">
+                        <span class="card-label">EDUCATION</span>
+                        <h3>Master of Cybersecurity</h3>
+                        <p>Toronto Metropolitan University</p>
+                        <small>Expected Aug 2027</small>
+                    </article>
+
+                    <article class="info-card">
+                        <span class="card-label">EDUCATION</span>
+                        <h3>Honours Bachelor of Information Technology</h3>
+                        <p>York University</p>
+                        <small>Completed Dec 2025</small>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <span class="section-code">02</span>
+                <div>
+                    <p class="eyebrow">SKILLS</p>
+                    <h2>Cybersecurity capabilities.</h2>
+                </div>
+            </div>
+
+            <div class="skills-layout">
+                <article class="skill-card">
+                    <span class="skill-index">SECURITY</span>
+                    <h3>Defensive Security</h3>
+                    <div class="tag-list">
+                        <span>Vulnerability Management</span>
+                        <span>NIST CSF</span>
+                        <span>CIS Controls</span>
+                        <span>Risk Assessment</span>
+                        <span>Incident Response</span>
+                        <span>IAM</span>
+                        <span>Endpoint Security</span>
+                        <span>Network Security</span>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <span class="skill-index">SYSTEMS</span>
+                    <h3>Networking & Systems</h3>
+                    <div class="tag-list">
+                        <span>TCP/IP</span>
+                        <span>DNS</span>
+                        <span>DHCP</span>
+                        <span>VLANs</span>
+                        <span>ACLs</span>
+                        <span>Routing</span>
+                        <span>Windows</span>
+                        <span>Linux</span>
+                        <span>Nmap</span>
+                        <span>tcpdump</span>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <span class="skill-index">TOOLS</span>
+                    <h3>Development & Tools</h3>
+                    <div class="tag-list">
+                        <span>Python</span>
+                        <span>SQL</span>
+                        <span>PostgreSQL</span>
+                        <span>Flask</span>
+                        <span>REST APIs</span>
+                        <span>Git / GitHub</span>
+                        <span>Docker</span>
+                        <span>JavaScript</span>
+                        <span>Java</span>
+                        <span>C#</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <span class="section-code">03</span>
+                <div>
+                    <p class="eyebrow">CERTIFICATIONS</p>
+                    <h2>Validated cybersecurity learning.</h2>
+                </div>
+            </div>
+
+            <div class="credential-list">
+                <article class="credential-row">
+                    <div>
+                        <h3>CompTIA Security+</h3>
+                        <p>Issued Aug 2026 • Valid through Aug 2029</p>
+                    </div>
+                    <span>ACTIVE</span>
+                </article>
+
+                <article class="credential-row">
+                    <div>
+                        <h3>Google Cybersecurity Professional Certificate</h3>
+                        <p>Issued May 2026</p>
+                    </div>
+                    <span>COMPLETED</span>
+                </article>
+
+                <article class="credential-row">
+                    <div>
+                        <h3>Google Cloud Modern Security Operations</h3>
+                        <p>Completed Sep 2025</p>
+                    </div>
+                    <span>COMPLETED</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <span class="section-code">04</span>
+                <div>
+                    <p class="eyebrow">PROJECTS & TRAINING</p>
+                    <h2>Hands-on technical work.</h2>
+                </div>
+            </div>
+
+            <div class="project-layout">
+                <article class="project-card featured">
+                    <div class="project-meta">
+                        <span>FEATURED PROJECT</span>
+                        <span>DEC 2025 — FEB 2026</span>
+                    </div>
+
+                    <h3>DarjahAI</h3>
+
+                    <p>
+                        Built and deployed a Dockerized web platform with authentication,
+                        5+ core modules, and 5+ JSON endpoints covering tasks, progression,
+                        analytics, chat, and subscriptions.
+                    </p>
+
+                    <p>
+                        Used Git-based deployment and resolved application, database,
+                        and configuration issues across development and production environments.
+                    </p>
+
+                    <div class="tag-list">
+                        <span>Flask</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
+                        <span>REST APIs</span>
+                        <span>Git</span>
+                    </div>
+
+                    <a
+                        class="darjah-link"
+                        href="https://darjahai.saadshahid.net"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        OPEN DARJAHAI ↗
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span>CYBERSECURITY TRAINING</span>
+                        <span>2026</span>
+                    </div>
+
+                    <h3>TryHackMe SEC0</h3>
+
+                    <p>
+                        Hands-on labs covering cybersecurity fundamentals, networking,
+                        Windows and Linux security, and security operations.
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span>TECHNICAL PROJECT</span>
+                        <span>MAR — APR 2025</span>
+                    </div>
+
+                    <h3>Information Retrieval Project</h3>
+
+                    <p>
+                        Built a modular Python indexer and searcher for 20 topics using
+                        TF-IDF, BM25, cosine similarity, and ranked output for up to
+                        1,000 documents per topic.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <span class="section-code">05</span>
+                <div>
+                    <p class="eyebrow">EXPERIENCE</p>
+                    <h2>Technical troubleshooting in practice.</h2>
+                </div>
+            </div>
+
+            <div class="experience-list">
+                <article class="experience-card">
+                    <div class="experience-top">
+                        <div>
+                            <span>APR 2026</span>
+                            <h3>Volunteer Software Developer</h3>
+                            <p class="company">Droplet Lab</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Translated product specifications into a 19-step offline Android
+                        onboarding workflow with checkpoints, permissions, completion checks,
+                        and support handoffs.
+                    </p>
+
+                    <p>
+                        Troubleshot Android and native build setup using Pixel emulators and
+                        an NDK r19 compatibility fix while working through a Java and C++ codebase.
+                    </p>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-top">
+                        <div>
+                            <span>APR 2026</span>
+                            <h3>Volunteer Web Developer</h3>
+                            <p class="company">Insurpro.ca</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Resolved a production WordPress editor failure by clearing caches,
+                        testing safe mode, reviewing configuration, and isolating 7+ plugins.
+                        Identified an ElementsKit dependency and completed the update with a
+                        controlled workaround.
+                    </p>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-top">
+                        <div>
+                            <span>2022 — PRESENT</span>
+                            <h3>Independent Programming Tutor</h3>
+                            <p class="company">Self-employed</p>
+                        </div>
+                    </div>
+
+                    <p>
+                        Provide one-to-one programming support, debug code, explain technical
+                        concepts clearly, and manage client communication, scheduling, and
+                        competing priorities.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-panel" id="contact">
+            <div class="contact-grid">
+                <div class="contact-copy">
+                    <p class="eyebrow">CONTACT / SECURE CHANNEL</p>
+
+                    <h2>Let’s talk cybersecurity.</h2>
+
+                    <p>
+                        I’m seeking Winter 2027 cybersecurity internships where I can
+                        contribute while continuing to build practical experience in
+                        security operations, vulnerability management, enterprise security,
+                        risk, and OT security.
+                    </p>
+
+                    <div class="contact-direct">
+                        <span class="contact-direct-label">DIRECT CONTACT</span>
+                        <a href="mailto:dev@saadshahid.net">dev@saadshahid.net</a>
+                        <a
+                            href="https://www.linkedin.com/in/saad-shahid-560622217"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            LinkedIn ↗
+                        </a>
+                    </div>
+
+                    <div class="contact-security-note">
+                        <span class="security-indicator"></span>
+                        <span>Form protected with CSRF validation and reCAPTCHA.</span>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <div class="form-card-header">
+                        <div>
+                            <span class="form-path">/contact/message</span>
+                            <h3>Send a message</h3>
+                        </div>
+                        <span class="form-status">READY</span>
+                    </div>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="flash-stack" aria-live="polite">
+                                {% for category, message in messages %}
+                                    <div class="flash-message {{ category }}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('index') }}#contact"
+                        class="contact-form"
+                    >
+                        {{ form.hidden_tag() }}
+
+                        <div class="field-group">
+                            <label for="name">Name</label>
+                            {{ form.name(
+                                id="name",
+                                class_="contact-input",
+                                placeholder="Your name",
+                                autocomplete="name"
+                            ) }}
+
+                            {% if form.name.errors %}
+                                <div class="field-errors">
+                                    {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="field-group">
+                            <label for="email">Email</label>
+                            {{ form.email(
+                                id="email",
+                                class_="contact-input",
+                                placeholder="you@example.com",
+                                autocomplete="email"
+                            ) }}
+
+                            {% if form.email.errors %}
+                                <div class="field-errors">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="field-group">
+                            <label for="message">Message</label>
+                            {{ form.message(
+                                id="message",
+                                class_="contact-input contact-textarea",
+                                placeholder="Tell me about the opportunity, team, or project...",
+                                rows="6"
+                            ) }}
+
+                            {% if form.message.errors %}
+                                <div class="field-errors">
+                                    {% for error in form.message.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="recaptcha-wrap">
+                            {{ form.recaptcha }}
+
+                            {% if form.recaptcha.errors %}
+                                <div class="field-errors">
+                                    {% for error in form.recaptcha.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit" class="submitbtn contact-submit">
+                            SEND MESSAGE
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                        <p class="form-footnote">
+                            Your email is only used so I can reply to your message.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="site-shell footer-inner">
+            <span>&copy; 2026 Saad Shahid</span>
+            <span>CYBERSECURITY / MISSISSAUGA, ON</span>
         </div>
-        <div class ="main-image-content1">
-            <img src = "{{url_for('static',filename='images/firstphotofme.jpg')}}" width="100" height="100" alt="This is a photo of me">
-        </div>
-    </header>
-    
-
-<div class="my-photo-container">
-
-    <div class="photo1">
-        <a href="mailto:0.saad.shahid@gmail.com" target="_blank">
-<img src="{{url_for('static',filename='images/emailicon.png')}}"width="50" height="50" alt = "My photo">
-        </a>
-</div>
-
-<div class="photo2">
-    <a href="https://github.com/xxaad0" target="_blank">
-<img src="{{url_for('static',filename='images/githubicon.png')}}"width="50" height="50" alt = "My photo">
-</a>
-</div>
-
-<div class="photo3">
-    <a href="https://www.linkedin.com/in/saad-shahid-560622217/" target="_blank">
-<img src="{{url_for('static',filename='images/linkedinicon.png')}}"width="50" height="50" alt = "My photo">
-</a>
-</div>
-
-</div>
-
-<div class = "skills">
-    <ul>
-        <li>React</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>SQL</li>
-    </ul>
-</div>
-
-
-
-
-<div class="my-resume-container">
-
-    <div class="resume1">
-        <a href="{{url_for('static',filename='files/SaadShahid_FullStack_Resume_2026.pdf')}}" target="_blank">
-<img src="{{url_for('static',filename='images/resumeicon.png')}}"width="100" height="100" alt = "My photo">
-        </a>
-</div>
-
-</div>
-
+    </footer>
 
     {% endblock %}
-
-        <footer>
-    <p>&copy; 2026 Saad Shahid. All rights reserved.</p>
-</footer>
-
 </body>
-
-
-
 </html>
-
